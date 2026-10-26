@@ -42,7 +42,6 @@ zhisuan-Al/
 ├── examples/                # 配置模板
 ├── installer/               # 安装包源码（C# 向导 + 载荷打包脚本）
 ├── launcher/                # 启动器源码（Launcher.cs）
-├── ZhiSuan-Al.exe           # 启动器（已编译，随仓库提交）
 └── start.bat                # 一键启动（编译 → 服务层 → GUI）
 ```
 
@@ -82,7 +81,9 @@ ollama pull qwen3.5:2b
 
 ### 3. 启动
 
-方式一：双击根目录的 `ZhiSuan-Al.exe`（无需命令行参数）。启动器会依次检查编译产物、拉起服务层、等待健康检查通过，再打开 GUI；参数可原样透传，例如 `ZhiSuan-Al.exe --port=8899 --mode=audit`。运行日志写入 `logs\`。该 exe 已随仓库提交，克隆后即可使用。
+方式一：双击根目录的 `ZhiSuan-Al.exe`（无需命令行参数）。启动器会依次检查编译产物、拉起服务层、等待健康检查通过，再打开 GUI；参数可原样透传，例如 `ZhiSuan-Al.exe --port=8899 --mode=audit`。运行日志写入 `logs\`。
+
+> 编译后的 `ZhiSuan-Al.exe`、`ZhiSuan-Al-Setup.exe` 与 `jlatexmath-1.0.7.jar` 不再随仓库分发，请从 [GitHub Releases](https://github.com/Chen-1107/zhisuan-Al/releases) 下载对应版本。
 
 启动器源码在 `launcher\Launcher.cs`，重新生成执行：
 
@@ -124,7 +125,7 @@ native\build_fmo.bat
 
 ## 安装包
 
-仓库内的 `ZhiSuan-Al-Setup.exe` 是自包含安装程序，内嵌运行文件与启动器（约 1.2 MB）。
+`ZhiSuan-Al-Setup.exe` 是自包含安装程序，内嵌运行文件与启动器（约 1.2 MB），请从 [GitHub Releases](https://github.com/Chen-1107/zhisuan-Al/releases) 下载。
 
 - 默认安装到 `%LOCALAPPDATA%\Programs\ZhiSuan-Al`，用户级安装，无需管理员权限
 - 创建桌面快捷方式与开始菜单项（含卸载入口）
@@ -248,6 +249,7 @@ R = clip(R, -50, 50)
 
 ```bat
 cd ui-java
+:: 若 lib\ 下缺少 jlatexmath-1.0.7.jar，请从 GitHub Releases 下载并放入该目录
 javac -encoding UTF-8 -cp "out;lib\jlatexmath-1.0.7.jar;..\ui-workflow\out" -d out tests\TestMarkdown.java
 java -cp "out;lib\jlatexmath-1.0.7.jar;..\ui-workflow\out" TestMarkdown
 ```
@@ -255,6 +257,14 @@ java -cp "out;lib\jlatexmath-1.0.7.jar;..\ui-workflow\out" TestMarkdown
 `TestE2E` / `TestLive` 需要服务层已启动；`TestTaskCard` / `TestTaskLine` / `TestTypewriter` 为纯渲染用例。
 
 GUI 截图验证：`java -cp ... zhisuan.UiShot <输出目录>`。
+
+---
+
+## 安全提示
+
+- 服务层默认仅监听 `127.0.0.1`，不建议直接暴露到公网。
+- `server/dft_config.json` 中的 `g16_command`、`orca_command` 等路径会被本地 shell 执行，请确保路径可信。
+- SSH 密码与云端 API Key 仅保存在本机配置文件中，不随仓库分发。
 
 ---
 

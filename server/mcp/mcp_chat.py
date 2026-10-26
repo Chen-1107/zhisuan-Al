@@ -95,7 +95,8 @@ class ChatModule(MCPModule):
     async def _evaluate_condition(self, value: Any, config: Dict) -> Dict:
         condition = config.get("condition", "")
         try:
-            result = eval(condition, {"value": value})
+            # 仅允许纯表达式，关闭 builtins 以避免代码注入
+            result = eval(condition, {"__builtins__": {}}, {"value": value})
             return {"true": result, "false": not result}
         except:
             return {"true": False, "false": True}

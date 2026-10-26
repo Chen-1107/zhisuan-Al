@@ -25,10 +25,7 @@ ui-workflow/out/
 sources.txt
 *.class
 *.jar
-!ui-java/lib/jlatexmath-1.0.7.jar
 *.exe
-!ZhiSuan-Al.exe
-!ZhiSuan-Al-Setup.exe
 *.obj
 *.pdb
 *.dll
