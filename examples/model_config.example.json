@@ -1,0 +1,12 @@
+{
+  "_comment": "复制为 server/model_config.json；默认使用本地 Ollama，cloud_api_key 留空即可",
+  "model_backend": "local",
+  "local_model": "qwen3.5:2b",
+  "local_ollama_host": "http://127.0.0.1:11434",
+  "cloud_provider": "openai_compat",
+  "cloud_base_url": "",
+  "cloud_api_key": "",
+  "cloud_model": "",
+  "cloud_privacy_consent": false,
+  "cloud_ts_auto": true
+}

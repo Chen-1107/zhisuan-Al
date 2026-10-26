@@ -1,0 +1,60 @@
+# ---- 本地配置（含凭据）----
+server/dft_config.json
+server/model_config.json
+server/tasks.json
+server/memory.json
+server/**/config.json
+*.local.json
+
+# ---- 运行期产物 ----
+server/workspace/
+workspace/
+logs/
+*.log
+*.out
+*.fchk
+*.chk
+*.rwf
+*.gbw
+*.tmp
+
+# ---- 构建产物 ----
+out/
+ui-java/out/
+ui-workflow/out/
+sources.txt
+*.class
+*.jar
+!ui-java/lib/jlatexmath-1.0.7.jar
+*.exe
+!ZhiSuan-Al.exe
+!ZhiSuan-Al-Setup.exe
+*.obj
+*.pdb
+*.dll
+native/*.exe
+native/*.obj
+
+# ---- 安装包中间产物（最终 exe 已放行）----
+installer/stage/
+installer/payload.zip
+
+# ---- 截图 / 临时 ----
+Demo_p/
+shots/
+*.png
+!assets/icons/*.png
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# ---- IDE / OS ----
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

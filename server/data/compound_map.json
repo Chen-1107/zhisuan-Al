@@ -1,0 +1,20 @@
+{
+  "_comment": "示例化合物库：中文名 -> SMILES。可自行扩充，或将完整库放在同名文件中。",
+  "name_to_smiles": {
+    "咔唑基铝宾 (1)": "[N][Al]",
+    "咔唑基铝烯前体": "C1=CC=CC=C1N(C2=CC=CC=C2)C3=CC=CC=C3",
+    "NacNac 铝宾 (2)": "CC1=CC(C)=N([Al]N1c1c(C)cc(C)cc1C)Cc1c(C)cc(C)cc1C",
+    "甲基咔唑铝宾 (14)": "CC(CC)c1cc2c(n([Al+]C)c3c2cc(cc3c2ccccc2)C(C)CC)c(c1)c1ccccc1",
+    "铝杂羰基 [Al=O] (50)": "[Al]=O",
+    "铝亚胺 Al=N (51)": "[Al]=N",
+    "铝烯 Al=C (52)": "C=[Al](C)C",
+    "阿司匹林": "CC(=O)OC1=CC=CC=C1C(=O)O",
+    "苯": "C1=CC=CC=C1",
+    "甲苯": "CC1=CC=CC=C1",
+    "吡啶": "C1=CC=NC=C1",
+    "四氢呋喃 (THF)": "C1CCOC1",
+    "乙炔": "C#C",
+    "二氧化碳": "O=C=O",
+    "碘甲烷": "CI"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_comment": "复制为 server/dft_config.json 后按本机环境填写；留空的集群字段表示不启用 SSH 后端",
+  "g16_command": "C:/g16w/g16.exe",
+  "orca_command": "C:/ORCA_6.1.0/orca.exe",
+  "multiwfn_command": "C:/Multiwfn/Multiwfn.exe",
+  "workspace": "./workspace",
+  "default_backend": "local_g16",
+  "ssh_host": "",
+  "ssh_username": "",
+  "ssh_password": "",
+  "ssh_key": "",
+  "ssh_work_dir": "",
+  "ssh_queue": "pbs",
+  "ssh_queue_name": "cpu",
+  "ssh_g16_root": "",
+  "ssh_g16_scratch": "",
+  "qe_wsl_distro": "Ubuntu",
+  "qe_command": "pw.x",
+  "pyscf_docker_container": "pyscf",
+  "pyscf_docker_python": "/opt/conda/bin/python"
+}
