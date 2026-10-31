@@ -292,7 +292,11 @@ namespace ZhiSuanLauncher
             sb.Append('"').Append(cp).Append('"');
             sb.Append(" -Dfile.encoding=UTF-8");
 
-            // 未显式指定端口时补上，保证 GUI 与服务层端口一致
+            sb.Append(" zhisuan.Main");
+
+            // 未显式指定端口时补上，保证 GUI 与服务层端口一致。
+            // 注意：参数必须放在主类 zhisuan.Main 之后，放在之前会被 JVM 当作虚拟机选项
+            // （Unrecognized option: --port=8899）导致 javaw 拒绝启动。
             bool portGiven = false;
             if (args != null)
             {
@@ -302,7 +306,6 @@ namespace ZhiSuanLauncher
                 }
             }
             if (!portGiven) sb.Append(" --port=").Append(port);
-            sb.Append(" zhisuan.Main");
             if (args != null)
             {
                 for (int i = 0; i < args.Length; i++)
